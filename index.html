@@ -71,7 +71,8 @@
   .app{max-width:920px;margin:0 auto;padding:24px 20px 80px;}
 
   /* ---------- masthead (fixed navy band, brand identity) ---------- */
-  .masthead{background:linear-gradient(135deg,var(--mast-1),var(--mast-2));position:relative;overflow:hidden;padding:22px clamp(20px,4vw,calc((100vw - 920px)/2 + 20px));display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+  .masthead{background:linear-gradient(135deg,var(--mast-1),var(--mast-2));position:relative;padding:22px clamp(20px,4vw,calc((100vw - 920px)/2 + 20px));display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+  .masthead-clip{position:absolute;inset:0;overflow:hidden;pointer-events:none;}
   .masthead-watermark{position:absolute;top:50%;right:-40px;transform:translateY(-50%);width:220px;height:220px;background-repeat:no-repeat;background-position:center;background-size:contain;opacity:.09;pointer-events:none;}
   .brand{display:flex;align-items:center;gap:14px;min-width:0;position:relative;z-index:1;}
   .brand-icon{flex:none;width:48px;height:48px;border-radius:50%;background:#fffaf0;border:2px solid var(--gold-tint);padding:4px;display:flex;align-items:center;justify-content:center;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.25);}
@@ -489,7 +490,7 @@
 
   function renderMasthead(r){
     return '<div class="masthead">'+
-      '<div class="masthead-watermark" style="background-image:url(\''+LOGO_DATA_URI+'\')" aria-hidden="true"></div>'+
+      '<div class="masthead-clip"><div class="masthead-watermark" style="background-image:url(\''+LOGO_DATA_URI+'\')" aria-hidden="true"></div></div>'+
       '<div class="brand">'+
         '<div class="brand-icon"><img src="'+LOGO_DATA_URI+'" alt="Brasão do Encontro de Casais com Cristo"></div>'+
         '<div class="brand-text"><div class="eyebrow">Sorteio da Ação</div><h1>'+esc(r.titulo || "Novo sorteio")+'</h1></div>'+
